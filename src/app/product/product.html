@@ -1,3 +1,39 @@
 <div class="container">
-  <h2>Product Component</h2>
+  <h2>Our Latest Products</h2>
+
+  <div class="grid grid-cols-1 mt-12 lg:mt-24 gap-y-12 md:grid-cols-3 gap-x-2">
+    <!-- loop -->
+    <div
+      class="md:px-4 lg:px-10 bg-slate-100 py-10"
+      *ngFor="let product of products"
+    >
+      <img
+        [src]="product.images[0]"
+        [alt]="product.title"
+        class="aspect-square object-cover"
+      />
+      <h3 class="mt-8 text-xl font-semibold leading-tight text-black">
+        {{product.title}}
+      </h3>
+      <p class="mt-4 text-base text-gray-600">{{product.description}}</p>
+    </div>
+    <!-- loop -->
+
+    <h2>Product Details</h2>
+
+    <div
+      class="md:px-4 lg:px-10 bg-slate-100 py-10"
+      *ngIf="product && product.images"
+    >
+      <img
+        [src]="product.images[0]"
+        [alt]="product.title"
+        class="aspect-square object-cover"
+      />
+      <h3 class="mt-8 text-xl font-semibold leading-tight text-black">
+        {{product.title}}
+      </h3>
+      <p class="mt-4 text-base text-gray-600">{{product.description}}</p>
+    </div>
+  </div>
 </div>
