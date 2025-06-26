@@ -7,8 +7,12 @@ import { Contact } from './contact/contact';
 import { Layout } from './shared/layout/layout';
 import { Notfound } from './shared/notfound/notfound';
 import { ProductDetails } from './product-details/product-details';
+import { Login } from './auth/login/login';
+import { Dashboard } from './dashboard/dashboard';
+import { AuthGaurd } from './gaurds/auth-gaurd-guard';
 
 export const routes: Routes = [
+  { path: 'login', component: Login },
   {
     path: '',
     component: Layout,
@@ -18,7 +22,12 @@ export const routes: Routes = [
       { path: 'products', component: Product },
       { path: 'products/:id', component: ProductDetails },
       { path: 'contact', component: Contact },
-      { path: '**', component: Notfound },
     ],
   },
+  {
+    path: 'dashboard',
+    component: Dashboard,
+    canActivate: [AuthGaurd],
+  },
+  { path: '**', component: Notfound },
 ];
