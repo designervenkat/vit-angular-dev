@@ -7,12 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class ProductServices {
   constructor(private http: HttpClient) {}
+  private apiURL = 'https://dummyjson.com/products';
 
   getAllProducts(): Observable<any> {
-    return this.http.get('https://dummyjson.com/products?limit=3');
+    return this.http.get(`${this.apiURL}?limit=10`);
   }
 
   getProductByDetails(id: number): Observable<any> {
-    return this.http.get(`https://dummyjson.com/products/${id}`);
+    return this.http.get(`${this.apiURL}/${id}`);
   }
 }

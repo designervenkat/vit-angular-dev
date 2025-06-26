@@ -6,6 +6,7 @@ import { Contact } from './contact/contact';
 
 import { Layout } from './shared/layout/layout';
 import { Notfound } from './shared/notfound/notfound';
+import { ProductDetails } from './product-details/product-details';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,7 @@ export const routes: Routes = [
       { path: '', component: Home },
       { path: 'about', component: About },
       { path: 'products', component: Product },
+      { path: 'products/:id', component: ProductDetails },
       { path: 'contact', component: Contact },
       { path: '**', component: Notfound },
     ],

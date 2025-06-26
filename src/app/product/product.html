@@ -1,39 +1,29 @@
-<div class="container">
-  <h2>Our Latest Products</h2>
+<div class="container flex justify-center flex-col items-center">
+  <h2 class="text-center text-2xl font-medium">Our Latest Products</h2>
 
-  <div class="grid grid-cols-1 mt-12 lg:mt-24 gap-y-12 md:grid-cols-3 gap-x-2">
+  <div
+    class="grid grid-cols-1 mt-4 lg:mt-4 gap-y-12 md:grid-cols-5 gap-x-2 mx-auto"
+  >
     <!-- loop -->
-    <div
+    <a
       class="md:px-4 lg:px-10 bg-slate-100 py-10"
       *ngFor="let product of products"
+      [routerLink]="['/products', product.id]"
     >
       <img
         [src]="product.images[0]"
         [alt]="product.title"
         class="aspect-square object-cover"
       />
-      <h3 class="mt-8 text-xl font-semibold leading-tight text-black">
+      <h3
+        class="mt-8 text-sm font-semibold leading-tight text-black line-clamp-1"
+      >
         {{product.title}}
       </h3>
-      <p class="mt-4 text-base text-gray-600">{{product.description}}</p>
-    </div>
+      <p class="mt-4 text-xs text-gray-600 line-clamp-2">
+        {{product.description}}
+      </p>
+    </a>
     <!-- loop -->
-
-    <h2>Product Details</h2>
-
-    <div
-      class="md:px-4 lg:px-10 bg-slate-100 py-10"
-      *ngIf="product && product.images"
-    >
-      <img
-        [src]="product.images[0]"
-        [alt]="product.title"
-        class="aspect-square object-cover"
-      />
-      <h3 class="mt-8 text-xl font-semibold leading-tight text-black">
-        {{product.title}}
-      </h3>
-      <p class="mt-4 text-base text-gray-600">{{product.description}}</p>
-    </div>
   </div>
 </div>
