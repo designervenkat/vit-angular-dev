@@ -11,11 +11,7 @@
           alt=""
         />
         <div class="pl-12 pr-6">
-          <img
-            class="relative"
-            [src]="product?.images[0]"
-            [alt]="product?.title"
-          />
+          <img class="relative" [src]="product.image" [alt]="product.title" />
         </div>
       </div>
 
@@ -26,7 +22,10 @@
           {{product.title}}
         </h2>
         <p class="text-xl leading-relaxed text-gray-900 mt-9">
-          {{product.description}}
+          {{product.desc}}
+        </p>
+        <p class="text-xl leading-relaxed text-gray-900 mt-9">
+          {{product.price}}
         </p>
       </div>
     </div>
